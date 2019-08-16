@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavController, MenuController, ToastController, AlertController, LoadingController } from '@ionic/angular';
+import {UserCustomService} from '../../../services/user-custom.service';
+import {AuthService,STORAGE_KEY_LOGIN} from '../../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +11,11 @@ import { NavController, MenuController, ToastController, AlertController, Loadin
 })
 export class LoginPage implements OnInit {
   public onLoginForm: FormGroup;
-
+  public loading:boolean;
   constructor(
     public navCtrl: NavController,
+    public userService:UserCustomService,
+    public authService:AuthService,
     public menuCtrl: MenuController,
     public toastCtrl: ToastController,
     public alertCtrl: AlertController,
@@ -26,12 +30,15 @@ export class LoginPage implements OnInit {
   ngOnInit() {
 
     this.onLoginForm = this.formBuilder.group({
-      'email': [null, Validators.compose([
+      username: [null, Validators.compose([
         Validators.required
       ])],
-      'password': [null, Validators.compose([
+      remember: [false],
+      password: [null, Validators.compose([
+        //                Validators.maxLength(25),
+        //                Validators.minLength(8),
         Validators.required
-      ])]
+      ])],
     });
   }
 
@@ -88,5 +95,64 @@ export class LoginPage implements OnInit {
   goToHome() {
     this.navCtrl.navigateRoot('/home-results');
   }
+  login()
+  {
+    this.loading = true;
+    this.checkLogin(this.onLoginForm.get("username").value, this.onLoginForm.get("password").value).then(
+        (success) =>
+        {
+          console.log("Login", success);
+          this.userService.getLocalUser(true).then(
+              () =>
+              {
+                this.loading = false;
+                this.goToHome();
+              },
+              (err) =>
+              {
+                this.loading = false;
 
+              }
+          );
+        },
+        (err) =>
+        {
+
+        }
+    );
+
+  }
+
+  checkLogin(username:string,password:string)
+  {
+    let THIS = this;
+    return new Promise<boolean>(function (resolve, reject)
+    {
+
+      if (THIS.onLoginForm.valid)
+      {
+        THIS.authService.login(username,password).then(
+            (res) =>
+            {
+
+              if (THIS.onLoginForm.get("remember").value)
+              {
+                THIS.authService.storeLogin(THIS.onLoginForm.get("username").value, THIS.onLoginForm.get("password").value);
+                resolve(true);
+              }
+              else
+              {
+                THIS.authService.removeLocal(STORAGE_KEY_LOGIN);
+                resolve(true);
+              }
+            },
+            (err) =>
+            {
+
+              reject(err);
+            }
+        );
+      }
+    });
+  }
 }

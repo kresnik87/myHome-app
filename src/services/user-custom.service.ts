@@ -1,14 +1,13 @@
 import {Injectable} from '@angular/core';
 import {BaseCustomService} from './base-custom.service';
-import {UserModel} from '../custom-models/user.model';
+import {UserModel} from '../models/user.model';
 import {HttpHeaders} from '@angular/common/http';
 
 export const STORAGE_KEY_USER = "current_user";
 import {ApiProvider} from '../providers/api.provider';
 import {AuthService} from './auth.service';
-import {ContactModel} from "../custom-models/contact.model";
-import {UserUserWrite} from "../../swagger/models/user-user-write";
-import {UserUserRead} from "../../swagger/models/user-user-read";
+import {UserUserWrite} from "../swagger/models/user-user-write";
+import {UserUserRead} from "../swagger/models/user-user-read";
 
 
 @Injectable({
@@ -136,19 +135,6 @@ export class UserCustomService extends BaseCustomService {
     });
   }
 
-  sendContact(id: number, contactModel:ContactModel) {
-    let lthis = this;
-    return new Promise(function (resolve, reject) {
-      lthis.api.post('api/contact/'+id, JSON.stringify(contactModel)).subscribe(
-        (resp: any) => {
-          resolve(resp);
-        },
-        (err) => {
-          reject(err);
-        }
-      );
-    });
-  }
 
   login(username: string, password: string) {
     let lthis = this;

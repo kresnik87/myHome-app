@@ -1,0 +1,176 @@
+{
+  "general": {
+    "nameApp": "My Home",
+    "sorry": "¡lo siento!",
+    "home": "Inicio",
+    "invoices": "Facturas",
+    "clients": "Clientes",
+    "create_profile": "Crear cuenta",
+    "title_register": "Registro",
+    "rememberme": "Recuerdame",
+    "contract": "CONTRACTO",
+    "error_email_use": "Email en uso",
+    "error_username_use": "Nombre de usuario en uso",
+    "server_ok": "Ok",
+    "error_validation": "Los datos son incorrectos",
+    "server_error": "Error en el servidor",
+    "alert_cancel": "Cancelar",
+    "alert_ok": "Vale",
+    "yes": "Si",
+    "no": "No",
+    "ok": "Vale",
+    "clear": "Limpiar",
+    "search": "Buscar",
+    "save": "Guardar",
+    "upgrade_you_tariff": "Mejora tu tarifa",
+    "profile": "Mi Perfil",
+    "lang_msg": "Lenguaje Cambiado!",
+    "see_more": "Ver más",
+    "see_less": "Ver menos",
+    "logout": "Cerrar Sesión",
+    "login":"Iniciar Sesión"
+  },
+  "error": {
+    "invalid_grant": "Usuario o contraseña incorrectos.",
+    "server": "Ups! Algo ha ido mal. \n Si el problema persiste, ponte en contacto con nosotros.",
+    "network": "Ha habido un problema de conexión. \n Inténtalo más tarde.",
+    "access_denied": "No puedes hacer eso.",
+    "check_form": "Revisa el formulario.",
+    "no_found": "No hemos encontrado lo que buscas.",
+    "needs": {
+      "email": "El correo es necesario.",
+      "privacy": "Acepta la política de privacidad para poder continuar."
+    },
+    "email_in_use": "El correo está en uso.",
+    "passwords_not_match": "Las contraseñas no coinciden.",
+    "invalid_extension": "Seleccione un archivo válido."
+  },
+  "login": {
+    "continue": "Continuar con",
+    "singup_user": "¿No estás registrado?",
+    "login_description": "Entra con el email y la contraseña de tu cuenta de troba-ho",
+    "login": "Entrar",
+    "sigin": "Inicia sesión",
+    "back": "Regresar",
+    "email": "Email",
+    "remember_me": "Recuérdame",
+    "send": "Enviar",
+    "facebook": "Facebook",
+    "username": "Tu usuario",
+    "password": "Tu contraseña",
+    "register": "Registráte",
+    "FORGETPASS": "¿Has olvidado la contraseña?",
+    "EMAIL_PASS_INVALID": "Email y/o contraseña incorrectos",
+    "or_whith": "o con",
+    "loading": "Iniciando sesión ,por favor espere...",
+    "toast_error_server": "Problemas con el servidor detectado",
+    "toast_error_email_in_use": "Este correo está en uso, por favor utilice otra dirección de correo",
+    "toast_error_denied_access": "Acceso denegado, por favor pongánse en contacto con el administrador del sistema",
+    "toast_expire_tariff": "La tarifa ha expirado",
+    "toast_title": "Error en el Login",
+    "toast_button_ok": "OK",
+    "toast_button_cancel": "Cancelar",
+    "toast_button_confirm": "Confirmar",
+    "error_text": "Tu nombre de usuario o contraseña",
+    "error_text2": "no son correctos",
+    "error_text3": "¡Intentalo de nuevo!",
+    "reset_pass_confirm": "Se ha enviado el correo con las instrucciones para cambiar su contraseña",
+    "required_field": "Campo Requerido"
+
+  },
+  "register": {
+    "name": "Tu nombre",
+    "surname": "Apellidos",
+    "email": "Correo Electrónico",
+    "password": "Contraseña",
+    "pass_confirm": "Confirmar Contraseña",
+    "date_birth": "Fecha de Nacimiento",
+    "text1": "¿Estás ya registrado?",
+    "button_text": "Registrarme",
+    "error_date": "Formato de fecha no válido",
+    "error_mismatch_password": "No coinciden las contraseñas",
+    "register_login":"El usuario se ha registrado correctamente"
+  },
+  "cart": {
+    "title": "Carrito",
+    "add_cart": "Añadir a carrito",
+    "product": "Producto",
+    "decription": "DESCRIPCIÓN",
+    "price": "Precio",
+    "cant": "Cantidad",
+    "subTotal": "SubTotal",
+    "code": "CÓDIGO DEL Cupón",
+    "apply": "Aplicar",
+    "total": "Total",
+    "purchase": "REALIZAR PEDIDO",
+    "continue": "SEGUIR COMPRANDO"
+  },
+  "loaders": {
+    "addCart_loading": "Agregando al carrito...",
+    "send_message": "Enviando mensaje..."
+  },
+  "slider": {
+    "button_text1": "Saber Mas",
+    "button_text2": "Ver Productos"
+  },
+  "star-prod": {
+    "star_title": "Productos Estrella",
+    "see_all": "Ver Todos"
+  },
+  "product": {
+    "cat": "Categoría",
+    "add_cart_msg": "El producto ha sido agregado a su carrito",
+    "add_cart_msg_error": "Ha ocurrido un error al agregar al carrito, intentelo de nuevo",
+    "add_cart_button": "Añadir a la cesta",
+    "related": "Productos relacionados"
+  },
+  "recent_post": {
+    "last_post": "Ultimos posts",
+    "see_all": "Ver Todos",
+    "see_more": "Ver Más..."
+  },
+  "contact": {
+    "button_text1": "Contacta",
+    "text1": "Si necesitas más información !Contacta con nosotros!",
+    "title": "Contacta con nosotros",
+    "write": "Escribenos",
+    "address": "Nuestra dirección",
+    "contact_data": "Datos de contacto",
+    "placeholder_name": "Tu nombre",
+    "placeholder_email": "Tu email",
+    "placeholder_subject": "Asunto",
+    "placeholder_body": "Mensaje",
+    "button_send": "Enviar",
+    "phone": "Teléfono",
+    "email": "Email",
+    "error_email": "Por favor introduzca una dirección de correo válida",
+    "success_msg": "Su mensaje ha sido enviado correctamente",
+    "error_msg": "Ha ocurrido un problema al enviar su mensaje, por favor intente de nuevo"
+  },
+  "blog": {
+    "title": "Blog",
+    "next": "Siguiente",
+    "back": "Atrás"
+  },
+  "footer": {
+    "about_us_footer":"Sobre Nosotros",
+    "contact": "Contacto",
+    "follow": "Siguenos",
+    "our_blog":"Blog",
+    "collaboration_of":"Colaboración de ..."
+  },
+  "filter": {
+    "all_products": "Todos los productos"
+  },
+  "post": {
+    "title": "Post"
+  },
+  "header":{
+    "log_in":"Iniciar Sessión",
+    "search":"Buscar",
+    "purchase_cost":"Coste de compra"
+  },
+  "services":{
+    "about_us_services":"Nuestros servicios"
+  }
+}
