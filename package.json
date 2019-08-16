@@ -1,16 +1,17 @@
 {
-  "name": "ionic4-start-theme",
-  "description": "Ionic 4 Start Theme",
+  "name": "my-home",
+  "description": "My Home",
   "version": "1.0.0",
-  "author": "Ionic Theme",
-  "homepage": "https://ionictheme.com",
+  "author": "Jeyser Aguilar",
+  "homepage": "https://myhome.es",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "swagger:build": "node_modules/.bin/ng-swagger-gen -i http://api.finance.local/api/docs.json -o src/swagger"
   },
   "private": true,
   "dependencies": {
@@ -29,6 +30,7 @@
     "@ionic/pro": "2.0.4",
     "core-js": "^2.5.4",
     "ionicons": "4.5.5",
+    "ng-swagger-gen": "^1.8.0",
     "rxjs": "~6.3.3",
     "zone.js": "~0.8.29"
   },
