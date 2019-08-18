@@ -6,14 +6,14 @@ import { ApiConfiguration, ApiConfigurationInterface } from './api-configuration
 import { BillService } from './services/bill.service';
 import { BudgetCatService } from './services/budget-cat.service';
 import { BudgetService } from './services/budget.service';
+import { CategoryService } from './services/category.service';
 import { DeviceService } from './services/device.service';
-import { ExpensesService } from './services/expenses.service';
 import { FinanceStatusService } from './services/finance-status.service';
 import { HomeService } from './services/home.service';
-import { IncomeService } from './services/income.service';
 import { UserService } from './services/user.service';
 import { NotificationUserService } from './services/notification-user.service';
 import { NotificationService } from './services/notification.service';
+import { OperationService } from './services/operation.service';
 import { ProductService } from './services/product.service';
 import { ShoppingListService } from './services/shopping-list.service';
 
@@ -33,14 +33,14 @@ import { ShoppingListService } from './services/shopping-list.service';
     BillService,
     BudgetCatService,
     BudgetService,
+    CategoryService,
     DeviceService,
-    ExpensesService,
     FinanceStatusService,
     HomeService,
-    IncomeService,
     UserService,
     NotificationUserService,
     NotificationService,
+    OperationService,
     ProductService,
     ShoppingListService
   ],

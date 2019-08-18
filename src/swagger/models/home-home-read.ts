@@ -1,5 +1,7 @@
 /* tslint:disable */
+import { UserHomeRead } from './user-home-read';
 import { NotificationUserHomeRead } from './notification-user-home-read';
+import { BudgetHomeRead } from './budget-home-read';
 export interface HomeHomeRead {
   lng?: number;
   id?: number;
@@ -8,11 +10,12 @@ export interface HomeHomeRead {
   updatedDate?: string;
   address?: string;
   lat?: number;
-  members?: Array<string>;
+  members?: Array<UserHomeRead>;
   telephone?: string;
   name?: string;
-  owner?: string;
+  owner?: UserHomeRead;
   requestNotif?: Array<NotificationUserHomeRead>;
-  budgets?: Array<string>;
+  budgets?: Array<BudgetHomeRead>;
   homeIncome?: number;
+  homeExpense?: number;
 }

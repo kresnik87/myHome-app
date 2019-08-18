@@ -22,6 +22,8 @@ import {ApiProvider} from '../providers/api.provider';
 import {environment} from '../environments/environment';
 import {ApiConfiguration} from '../swagger/api-configuration';
 import {AuthInterceptor} from "../helpers/AuthInterceptor";
+import {TabPageModule} from './pages/tab/tab.module';
+import {TabPage} from './pages/tab/tab.page';
 
 
 export function createTranslateLoader(http: HttpClient)
@@ -51,6 +53,7 @@ export const INIT_API_CONFIGURATION: Provider = {
     BrowserAnimationsModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+     TabPageModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

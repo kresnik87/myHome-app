@@ -51,6 +51,7 @@
     "login_description": "Entra con el email y la contraseña de tu cuenta de troba-ho",
     "login": "Entrar",
     "sigin": "Inicia sesión",
+    "or_signin": "O iniciar sesión con:",
     "back": "Regresar",
     "email": "Email",
     "remember_me": "Recuérdame",
@@ -91,12 +92,12 @@
     "error_mismatch_password": "No coinciden las contraseñas",
     "register_login":"El usuario se ha registrado correctamente"
   },
-  "cart": {
-    "title": "Carrito",
-    "add_cart": "Añadir a carrito",
-    "product": "Producto",
-    "decription": "DESCRIPCIÓN",
-    "price": "Precio",
+  "home": {
+    "home": "Hogar",
+    "budget": "Presupuestos",
+    "financeStatus": "Mis Finanzas",
+    "notif": "Notificaciones",
+    "settings": "Config.",
     "cant": "Cantidad",
     "subTotal": "SubTotal",
     "code": "CÓDIGO DEL Cupón",

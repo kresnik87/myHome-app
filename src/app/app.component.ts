@@ -24,27 +24,7 @@ export class AppComponent {
     private statusBar: StatusBar,
     public navCtrl: NavController
   ) {
-    this.appPages = [
-      {
-        title: 'Home',
-        url: '/home-results',
-        direct: 'root',
-        icon: 'home'
-      },
-      {
-        title: 'About',
-        url: '/about',
-        direct: 'forward',
-        icon: 'information-circle-outline'
-      },
 
-      {
-        title: 'App Settings',
-        url: '/settings',
-        direct: 'forward',
-        icon: 'cog'
-      }
-    ];
 
     this.initializeApp();
   }
@@ -57,13 +37,7 @@ export class AppComponent {
     }).catch(() => {});
   }
 
-  goToEditProgile() {
-    this.navCtrl.navigateForward('edit-profile');
-  }
 
-  logout() {
-    this.navCtrl.navigateRoot('/');
-  }
 
   initializeTranslate()
   {

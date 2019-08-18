@@ -169,4 +169,17 @@ export class UserCustomService extends BaseCustomService {
         });
     });
   }
+  getCountNotification(){
+    let lthis = this;
+    let config = {headers: new HttpHeaders().set("Content-Type", 'application/json')};
+    return new Promise<number>(function (resolve, reject) {
+      lthis.api.get('api/notification-count', null,config).subscribe(
+          (res: any) => {
+            resolve(res);
+          },
+          (err) => {
+            reject(err);
+          });
+    });
+  }
 }

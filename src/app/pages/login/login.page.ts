@@ -93,7 +93,7 @@ export class LoginPage implements OnInit {
   }
 
   goToHome() {
-    this.navCtrl.navigateRoot('/home-results');
+    this.navCtrl.navigateRoot('/tab');
   }
   login()
   {

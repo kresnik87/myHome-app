@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { PopmenuComponent } from './../../components/popmenu/popmenu.component';
 
 import { HomeResultsPage } from './home-results.page';
+import {TranslateModule} from '@ngx-translate/core';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    TranslateModule.forChild(),
     IonicModule,
     RouterModule.forChild(routes)
   ],

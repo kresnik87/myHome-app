@@ -1,4 +1,5 @@
 /* tslint:disable */
+import { BudgetCatBudgetRead } from './budget-cat-budget-read';
 import { HomeBudgetRead } from './home-budget-read';
 export interface BudgetBudgetRead {
   id?: number;
@@ -6,6 +7,7 @@ export interface BudgetBudgetRead {
   dateUpdated?: string;
   status?: string;
   coef?: number;
-  category?: Array<string>;
+  category?: Array<BudgetCatBudgetRead>;
   home?: HomeBudgetRead;
+  coefStatus?: number;
 }

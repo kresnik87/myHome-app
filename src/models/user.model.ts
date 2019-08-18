@@ -1,8 +1,9 @@
 import {BaseModel} from './base.model';
+import {UserUserRead} from '../swagger/models/user-user-read';
 
 
 
-export class UserModel extends BaseModel
+export class UserModel extends BaseModel implements UserUserRead
 {
     id: number = null;
     name: string = null;

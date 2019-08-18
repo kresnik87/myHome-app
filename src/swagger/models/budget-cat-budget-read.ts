@@ -1,14 +1,13 @@
 /* tslint:disable */
-import { CategoryBudgetCatRead } from './category-budget-cat-read';
-export interface BudgetCatBudgetCatRead {
+import { CategoryBudgetRead } from './category-budget-read';
+export interface BudgetCatBudgetRead {
   id?: number;
   name?: string;
-  budget?: string;
   amount?: number;
   frecuency?: string;
   startDate?: string;
   activeNotif?: boolean;
-  category?: CategoryBudgetCatRead;
+  category?: CategoryBudgetRead;
   automatic?: boolean;
   endDate?: string;
 }

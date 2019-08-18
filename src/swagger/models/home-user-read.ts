@@ -1,4 +1,5 @@
 /* tslint:disable */
+import { BudgetUserRead } from './budget-user-read';
 export interface HomeUserRead {
   id?: number;
   bills?: Array<string>;
@@ -6,6 +7,7 @@ export interface HomeUserRead {
   updatedDate?: string;
   address?: string;
   name?: string;
-  budgets?: Array<string>;
+  budgets?: Array<BudgetUserRead>;
   homeIncome?: number;
+  homeExpense?: number;
 }

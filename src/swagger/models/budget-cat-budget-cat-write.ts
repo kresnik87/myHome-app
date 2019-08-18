@@ -1,8 +1,13 @@
 /* tslint:disable */
+import { CategoryBudgetCatWrite } from './category-budget-cat-write';
 export interface BudgetCatBudgetCatWrite {
-  type?: string;
+  name?: string;
   budget?: string;
-  id?: number;
-  concept?: string;
   amount?: number;
+  frecuency?: string;
+  startDate?: string;
+  activeNotif?: boolean;
+  category?: CategoryBudgetCatWrite;
+  automatic?: boolean;
+  endDate?: string;
 }

@@ -1,34 +1,41 @@
-import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import {Component, OnInit} from '@angular/core';
+import {NavController} from '@ionic/angular';
+import {UserCustomService} from '../../../services/user-custom.service';
+import {AuthService} from '../../../services/auth.service';
 
 @Component({
-  selector: 'app-settings',
-  templateUrl: './settings.page.html',
-  styleUrls: ['./settings.page.scss'],
+    selector: 'app-settings',
+    templateUrl: './settings.page.html',
+    styleUrls: ['./settings.page.scss'],
 })
 export class SettingsPage implements OnInit {
-  lang: any;
-  enableNotifications: any;
-  paymentMethod: any;
-  currency: any;
-  enablePromo: any;
-  enableHistory: any;
+    lang: any;
+    enableNotifications: any;
+    paymentMethod: any;
+    currency: any;
+    enablePromo: any;
+    enableHistory: any;
 
-  languages: any = ['English', 'Portuguese', 'French'];
-  paymentMethods: any = ['Paypal', 'Credit Card'];
-  currencies: any = ['USD', 'BRL', 'EUR'];
+    languages: any = ['English', 'Portuguese', 'French'];
+    paymentMethods: any = ['Paypal', 'Credit Card'];
+    currencies: any = ['USD', 'BRL', 'EUR'];
 
-  constructor(public navCtrl: NavController) { }
+    constructor(
+        public navCtrl: NavController,
+        public authService:AuthService) {
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
-  editProfile() {
-    this.navCtrl.navigateForward('edit-profile');
-  }
+    editProfile() {
+        this.navCtrl.navigateForward('edit-profile');
+    }
 
-  logout() {
-    this.navCtrl.navigateRoot('/');
-  }
+    logout() {
+        this.authService.logout().then((result)=>{
+            this.navCtrl.navigateRoot('/');
+        });
+    }
 
 }
