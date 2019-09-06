@@ -1,6 +1,6 @@
 {
   "general": {
-    "nameApp": "My Home",
+    "nameApp": "Our Savings",
     "sorry": "¡lo siento!",
     "home": "Inicio",
     "invoices": "Facturas",
@@ -51,14 +51,14 @@
     "login_description": "Entra con el email y la contraseña de tu cuenta de troba-ho",
     "login": "Entrar",
     "sigin": "Inicia sesión",
-    "or_signin": "O iniciar sesión con:",
+    "or_signin": "Inicia sesión con:",
     "back": "Regresar",
     "email": "Email",
     "remember_me": "Recuérdame",
     "send": "Enviar",
     "facebook": "Facebook",
-    "username": "Tu usuario",
-    "password": "Tu contraseña",
+    "username": "Usuario",
+    "password": "Contraseña",
     "register": "Registráte",
     "FORGETPASS": "¿Has olvidado la contraseña?",
     "EMAIL_PASS_INVALID": "Email y/o contraseña incorrectos",
@@ -104,7 +104,14 @@
     "apply": "Aplicar",
     "total": "Total",
     "purchase": "REALIZAR PEDIDO",
-    "continue": "SEGUIR COMPRANDO"
+    "continue": "SEGUIR COMPRANDO",
+    "bills": "Facturas",
+    "shopping_list": "Lista de Compras",
+    "not_home": "Upss no tienes un hogar, puedes crear uno.",
+    "members": "Miembros",
+    "text_see": "Ver",
+    "text_create": "Crear",
+    "text_add": "Agregar"
   },
   "loaders": {
     "addCart_loading": "Agregando al carrito...",

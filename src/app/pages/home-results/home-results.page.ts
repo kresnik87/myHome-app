@@ -1,109 +1,92 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {
-  NavController,
-  AlertController,
-  MenuController,
-  ToastController,
-  PopoverController,
-  ModalController } from '@ionic/angular';
+    NavController,
+    MenuController
+} from '@ionic/angular';
 
-// Modals
-import { SearchFilterPage } from '../../pages/modal/search-filter/search-filter.page';
-import { ImagePage } from './../modal/image/image.page';
-// Call notifications test by Popover and Custom Component.
-import { NotificationsComponent } from './../../components/notifications/notifications.component';
+import {UserCustomService} from '../../../services/user-custom.service';
+import {UserUserRead} from '../../../swagger/models/user-user-read';
+import {HomeService} from '../../../swagger/services';
+import {HomeHomeRead} from '../../../swagger/models/home-home-read';
+import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-home-results',
-  templateUrl: './home-results.page.html',
-  styleUrls: ['./home-results.page.scss']
+    selector: 'app-home-results',
+    templateUrl: './home-results.page.html',
+    styleUrls: ['./home-results.page.scss']
 })
-export class HomeResultsPage {
-  searchKey = '';
-  yourLocation = '123 Test Street';
-  themeCover = 'assets/img/ionic4-Start-Theme-cover.jpg';
+export class HomeResultsPage implements OnInit {
+    public userLogged: UserUserRead;
+    public home: HomeHomeRead;
+    public date: any = new Date();
+    public loading: boolean = false;
 
-  constructor(
-    public navCtrl: NavController,
-    public menuCtrl: MenuController,
-    public popoverCtrl: PopoverController,
-    public alertCtrl: AlertController,
-    public modalCtrl: ModalController,
-    public toastCtrl: ToastController
-  ) {
+    constructor(
+        public navCtrl: NavController,
+        public menuCtrl: MenuController,
+        public userCustomService: UserCustomService,
+        public homeService: HomeService,
+        public router: Router
+    ) {
 
-  }
+    }
 
-  ionViewWillEnter() {
-    this.menuCtrl.enable(true);
-  }
 
-  settings() {
-    this.navCtrl.navigateForward('settings');
-  }
+    ngOnInit(): void {
+        this.menuCtrl.enable(true);
+        this.loading = true;
+        this.userCustomService.getLocalUser().then((user) => {
+            this.userLogged = user;
+            if (this.userLogged.home) {
+                this.loadHome(this.userLogged.home.id).then(data => {
+                    this.loading = false;
+                    this.home = data;
+                    console.log(this.home);
+                }).catch(error => {
+                    console.log(error);
+                });
+            }
+        });
+    }
 
-  async alertLocation() {
-    const changeLocation = await this.alertCtrl.create({
-      header: 'Change Location',
-      message: 'Type your Address.',
-      inputs: [
-        {
-          name: 'location',
-          placeholder: 'Enter your new Location',
-          type: 'text'
-        },
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          handler: data => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'Change',
-          handler: async (data) => {
-            console.log('Change clicked', data);
-            this.yourLocation = data.location;
-            const toast = await this.toastCtrl.create({
-              message: 'Location was change successfully',
-              duration: 3000,
-              position: 'top',
-              closeButtonText: 'OK',
-              showCloseButton: true
+    settings() {
+        this.navCtrl.navigateForward('settings');
+    }
+
+
+    goEditHome(edit: boolean) {
+        let params: any;
+        if (edit) {
+            this.router.navigate(['/home', this.home.id]).then((resp) => {
+                if (resp) {
+                    console.log('Navigation success: ' + this.home.id);
+                } else {
+                    console.log('Navigation failed!');
+                }
             });
-
-            toast.present();
-          }
+        } else {
+            this.router.navigate(['/home']).then((resp) => {
+                if (resp) {
+                    console.log('Navigation success');
+                } else {
+                    console.log('Navigation failed!');
+                }
+            });
         }
-      ]
-    });
-    changeLocation.present();
-  }
 
-  async searchFilter () {
-    const modal = await this.modalCtrl.create({
-      component: SearchFilterPage
-    });
-    return await modal.present();
-  }
+    }
 
-  async presentImage(image: any) {
-    const modal = await this.modalCtrl.create({
-      component: ImagePage,
-      componentProps: { value: image }
-    });
-    return await modal.present();
-  }
-
-  async notifications(ev: any) {
-    const popover = await this.popoverCtrl.create({
-      component: NotificationsComponent,
-      event: ev,
-      animated: true,
-      showBackdrop: true
-    });
-    return await popover.present();
-  }
-
+    loadHome(id: any) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                this.homeService.getHomeItem(id).subscribe(resp => {
+                    if (resp) {
+                        resolve(resp);
+                    }
+                }, error1 => {
+                    reject(error1);
+                });
+            }, 5000);
+        });
+    }
 }

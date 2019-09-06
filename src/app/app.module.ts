@@ -24,8 +24,12 @@ import {ApiConfiguration} from '../swagger/api-configuration';
 import {AuthInterceptor} from "../helpers/AuthInterceptor";
 import {TabPageModule} from './pages/tab/tab.module';
 import {TabPage} from './pages/tab/tab.page';
-
-
+import { BudgetCmpComponent } from './components/budget-cmp/budget-cmp.component';
+import {ComponentModule} from './components/component.module';
+//External Libs
+import {GmapsLibModule} from '@kresnik87/ng-gmaps-lib';
+//Native
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 export function createTranslateLoader(http: HttpClient)
 {
   return new TranslateHttpLoader(http, './assets/lang/', '.json');
@@ -50,10 +54,16 @@ export const INIT_API_CONFIGURATION: Provider = {
   declarations: [AppComponent, NotificationsComponent],
   imports: [
     BrowserModule,
+    GmapsLibModule.forRoot({
+      apiKey: 'AIzaSyDpHxbJAw5POUSS964IpdC93xxu2qQfEMA',
+      libraries: ['places']
+    }),
     BrowserAnimationsModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    ComponentModule,
      TabPageModule,
+
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -65,11 +75,12 @@ export const INIT_API_CONFIGURATION: Provider = {
     ImagePageModule,
     SearchFilterPageModule
   ],
-  entryComponents: [NotificationsComponent],
+  entryComponents: [NotificationsComponent,BudgetCmpComponent],
   providers: [
     StatusBar,
     SplashScreen,
     ApiProvider,
+    Geolocation,
     INIT_API_CONFIGURATION,
     {
       provide: HTTP_INTERCEPTORS,

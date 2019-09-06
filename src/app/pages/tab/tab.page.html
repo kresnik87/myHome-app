@@ -1,26 +1,21 @@
 <ion-tabs>
 
-  <ion-tab-bar slot="bottom" color="light">
+  <ion-tab-bar slot="bottom" color="secondary" mode="ios" translucent="true">
     <ion-tab-button tab="home">
       <ion-icon name="home" color="primary"></ion-icon>
-      <ion-label> {{'home.home'|translate}}</ion-label>
     </ion-tab-button>
     <ion-tab-button tab="about">
       <ion-icon name="filing" color="primary"></ion-icon>
-      <ion-label> {{'home.budget'|translate}}</ion-label>
     </ion-tab-button>
-    <ion-tab-button >
+    <ion-tab-button tab="budget">
       <ion-icon name="pie" color="primary"></ion-icon>
-      <ion-label> {{'home.financeStatus'|translate}}</ion-label>
     </ion-tab-button>
     <ion-tab-button >
       <ion-icon name="notifications" color="primary"></ion-icon>
       <ion-badge color="tertiary" *ngIf="countNotif>0">{{countNotif}}</ion-badge>
-      <ion-label>{{'home.notif'|translate}}</ion-label>
     </ion-tab-button>
     <ion-tab-button tab="settings">
       <ion-icon name="settings" color="primary"></ion-icon>
-      <ion-label>{{'home.settings'|translate}}</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
 

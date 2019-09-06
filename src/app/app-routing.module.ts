@@ -6,6 +6,8 @@ const routes: Routes = [
   { path: 'register', loadChildren: './pages/register/register.module#RegisterPageModule' },
   { path: 'edit-profile', loadChildren: './pages/edit-profile/edit-profile.module#EditProfilePageModule' },
   { path: 'tab', loadChildren: './pages/tab/tab.module#TabPageModule' },
+  { path: 'home/:id', loadChildren: './pages/home-edit/home-edit.module#HomeEditPageModule' },
+  { path: 'home', loadChildren: './pages/home-edit/home-edit.module#HomeEditPageModule' },
 ];
 
 @NgModule({

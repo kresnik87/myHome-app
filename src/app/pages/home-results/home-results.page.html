@@ -1,20 +1,136 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-title text-center>
-        <ion-text color="light">
-          <ion-text color="light" class="fw700"> {{'general.nameApp'|translate}}</ion-text>
-        </ion-text>
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-<ion-content>
-  <ion-card class="bg-white">
-    <ion-img [src]="themeCover"></ion-img>
-    <ion-button expand="full" color="dark" (click)="presentImage(themeCover)" no-margin>
-      Modal 1: Modal Image
-    </ion-button>
-  </ion-card>
-  <ion-button margin shape="round" expand="full" color="secondary" (click)="searchFilter()">
-    Modal 2: Search Filter
-  </ion-button>
+<ion-content class="bg-main">
+    <ion-header mode="ios" translucent="true">
+        <ion-toolbar color="secondary">
+            <ion-row *ngIf="userLogged">
+                <ion-col size="8">
+                    <div class="header-text">
+                        <h2 class="fw700">Dashboard</h2>
+                        <span>Bienvenido a casa, {{userLogged.name}}</span>
+                    </div>
+                </ion-col>
+                <ion-col size="4" text-center>
+                    <ion-avatar>
+                        <img [src]="userLogged.image!=null?userLogged.image:'assets/img/avatar.png'">
+                    </ion-avatar>
+                </ion-col>
+            </ion-row>
+        </ion-toolbar>
+    </ion-header>
+    <ion-progress-bar type="indeterminate" color="primary" *ngIf="loading"></ion-progress-bar>
+    <div class="card-container" *ngIf="!loading">
+        <ion-list>
+            <ion-card class="home-card bg-primary" margin-top>
+                <ion-item lines="none">
+                    <ion-icon name="home" slot="start" color="light"></ion-icon>
+                    <ion-label color="light">{{"home.home"|translate}}</ion-label>
+                    <ion-button fill="outline" slot="end" color="light"
+                                (click)="goEditHome(home!=null)">{{(home != null ? "home.text_see" : "home.text_create")|translate}}</ion-button>
+                </ion-item>
+                <ion-card-content>
+                    <ion-card-title color="light" *ngIf="home">{{home.name}}</ion-card-title>
+                    <ion-label *ngIf="!home" color="light">{{"home.not_home"|translate}}</ion-label>
+                </ion-card-content>
+            </ion-card>
+            <ion-card class="home-card bg-secondary2" margin-top>
+                <ion-item lines="none">
+                    <ion-icon name="cash" slot="start" color="primary"></ion-icon>
+                    <ion-label color="primary">{{"home.bills"|translate}}</ion-label>
+                    <ion-button fill="outline" slot="end"
+                                color="light">{{(home && home.bills.length > 0 ? "home.text_see" : "home.text_create")|translate}}</ion-button>
+                </ion-item>
+                <ion-card-content>
+                    <ion-card-title>{{date|date:'LLLL yyyy'}}</ion-card-title>
+                </ion-card-content>
+            </ion-card>
+            <ion-card class="home-card bg-tertiary2" margin-top>
+                <ion-item lines="none">
+                    <ion-icon name="today" slot="start" class="text-c"></ion-icon>
+                    <ion-label color="primary">{{"home.shopping_list"|translate}}</ion-label>
+                    <ion-button fill="outline" slot="end" color="light">{{(home ? "home.text_see" : "home.text_create")|translate}}</ion-button>
+                </ion-item>
+                <ion-card-content>
+                    <ion-card-title>{{date|date:'LLLL yyyy'}}</ion-card-title>
+                </ion-card-content>
+            </ion-card>
+            <ion-card class="home-card bg-primary2" margin-top>
+                <ion-item lines="none">
+                    <ion-icon name="people" slot="start" class="text-c"></ion-icon>
+                    <ion-label color="primary">{{"home.members"|translate}}</ion-label>
+                    <ion-button fill="outline" slot="end" color="light">{{(home.members.length>0 ? "home.text_see" : "home.text_add")|translate}}</ion-button>
+                </ion-item>
+                <ion-card-content>
+                    <ion-card-title>{{date|date:'LLLL yyyy'}}</ion-card-title>
+                </ion-card-content>
+            </ion-card>
+        </ion-list>
+
+    </div>
+    <!-- Skeleton screen -->
+    <div *ngIf="loading">
+
+        <ion-list padding>
+            <ion-card>
+                <ion-item lines="none">
+                    <div class="item-header">
+                        <ion-skeleton-text  class="icon-skeleton" slot="start" animated></ion-skeleton-text>
+                        <ion-label>
+                            <h3>
+                                <ion-skeleton-text animated="true" style="width: 30%"></ion-skeleton-text>
+                            </h3>
+                        </ion-label>
+                    </div>
+                </ion-item>
+                <ion-card-content>
+                    <ion-card-title>
+                        <ion-skeleton-text animated style="width:80%"></ion-skeleton-text>
+                    </ion-card-title>
+                </ion-card-content>
+            </ion-card>
+            <ion-card>
+                <ion-item lines="none">
+                    <ion-skeleton-text  class="icon-skeleton" slot="start" animated></ion-skeleton-text>
+                    <ion-label>
+                        <h3>
+                            <ion-skeleton-text animated="true" style="width: 50%"></ion-skeleton-text>
+                        </h3>
+                    </ion-label>
+                </ion-item>
+                <ion-card-content>
+                    <ion-card-title>
+                        <ion-skeleton-text animated style="width:50%"></ion-skeleton-text>
+                    </ion-card-title>
+                </ion-card-content>
+            </ion-card>
+            <ion-card>
+                <ion-item lines="none">
+                    <ion-skeleton-text  class="icon-skeleton" slot="start" animated></ion-skeleton-text>
+                    <ion-label>
+                        <h3>
+                            <ion-skeleton-text animated="true" style="width: 50%"></ion-skeleton-text>
+                        </h3>
+                    </ion-label>
+                </ion-item>
+                <ion-card-content>
+                    <ion-card-title>
+                        <ion-skeleton-text animated style="width:50%"></ion-skeleton-text>
+                    </ion-card-title>
+                </ion-card-content>
+            </ion-card>
+            <ion-card>
+                <ion-item lines="none">
+                    <ion-skeleton-text  class="icon-skeleton" slot="start" animated></ion-skeleton-text>
+                    <ion-label>
+                        <h3>
+                            <ion-skeleton-text animated="true" style="width: 50%"></ion-skeleton-text>
+                        </h3>
+                    </ion-label>
+                </ion-item>
+                <ion-card-content>
+                    <ion-card-title>
+                        <ion-skeleton-text animated style="width:50%"></ion-skeleton-text>
+                    </ion-card-title>
+                </ion-card-content>
+            </ion-card>
+        </ion-list>
+    </div>
 </ion-content>

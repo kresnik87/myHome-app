@@ -1,5 +1,7 @@
 import {BaseModel} from './base.model';
 import {UserUserRead} from '../swagger/models/user-user-read';
+import {HomeHomeRead} from '../swagger/models/home-home-read';
+import {FinanceStatusFinanceRead} from '../swagger/models/finance-status-finance-read';
 
 
 
@@ -9,16 +11,10 @@ export class UserModel extends BaseModel implements UserUserRead
     name: string = null;
     surnames: string = null;
     address: string = null;
-    nif: string = null;
+    home: HomeHomeRead= null;
     image: string = null;
     phone: string = null;
-    country: string = null;
-    state: string = null;
-    postalCode: string = null;
-    city: string = null;
-    gender: string = null;
-    birthDate: string = null;
-    civilStatus: string = null;
+    financeStatus: FinanceStatusFinanceRead= null;
     username: string = null;
     email: string = null;
     countNotification: number = 0;

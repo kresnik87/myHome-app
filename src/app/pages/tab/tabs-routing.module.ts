@@ -39,6 +39,27 @@ const routes: Routes = [
                         ]
                 },
                 {
+                    path: 'budget',
+                    children:
+                        [
+                            {
+                                path: '',
+                                loadChildren: '../budget-page/budget-page.module#BudgetPagePageModule'
+                            }
+                        ]
+                },
+                {
+                  path:'settings',
+                  children:
+                  [
+                      {
+                          path:'',
+                          loadChildren: '../edit-profile/edit-profile.module#EditProfilePageModule'
+                      }
+                  ]
+
+                },
+                {
                     path: '',
                     redirectTo: '/tab/home',
                     pathMatch: 'full'

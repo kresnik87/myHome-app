@@ -1,0 +1,11 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>{{cat.name}}</ion-card-title>
+    <ion-card-title color="primary">{{cat.amount|currency:'EUR'}}</ion-card-title>
+    <ion-card-subtitle class="text-primary">{{(cat.amount-bills)|currency:'EUR'}} {{"sobrante"}}</ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content>
+
+    <ion-progress-bar type="determinate" [color]="color" [value]="valuePercentage" size="12"></ion-progress-bar>
+  </ion-card-content>
+</ion-card>

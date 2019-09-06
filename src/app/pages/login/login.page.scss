@@ -1,6 +1,17 @@
 :host {
     ion-content {
-        --background: linear-gradient(135deg, var(--ion-color-primary), var(--ion-color-secondary));
+        --background: opacity(0.2);
+        h2{
+            font-size: 2rem;
+
+        }
+    }
+    .logo-container{
+        height: 20vh;
+    }
+    ion-card{
+        border-radius: 15px;
+        background: transparent;
     }
 }
 

@@ -1,49 +1,50 @@
 <ion-content padding class="animated fadeIn login auth-page">
-  <div class="theme-bg"></div>
   <div class="auth-content">
 
     <!-- Logo -->
-    <div padding-horizontal text-center class="animated fadeInDown">
-      <div class="logo"></div>
-      <h4 no-margin>
+    <div padding-horizontal text-center class="logo-container animated fadeInDown">
+      <h2 margin>
         <ion-text color="light" class="fw700">
           {{'general.nameApp'|translate}}
         </ion-text>
-      </h4>
+      </h2>
     </div>
 
     <!-- Login form -->
-    <form [formGroup]="onLoginForm" class="list-form">
-      <ion-item no-padding class="animated fadeInUp">
-        <ion-label position="floating">
-          <ion-icon name="person" slot="start" ></ion-icon>
-          {{'login.username'|translate}}
-        </ion-label>
-        <ion-input color="secondary" type="text" formControlName="username"></ion-input>
-      </ion-item>
-      <p ion-text class="text08" *ngIf="onLoginForm.get('username').touched && onLoginForm.get('username').hasError('required')">
-        <ion-text color="warning">
-          {{'login.require_field'|translate}}
-        </ion-text>
-      </p>
-
-      <ion-item no-padding class="animated fadeInUp">
-        <ion-label position="floating">
-          <ion-icon name="lock" slot="start" ></ion-icon>
-          {{'login.password'|translate}}
-        </ion-label>
-        <ion-input color="secondary" type="password" formControlName="password"></ion-input>
-      </ion-item>
-      <p ion-text color="warning" class="text08" *ngIf="onLoginForm.get('password').touched && onLoginForm.get('password').hasError('required')">
-        <ion-text color="warning">
-          {{'login.require_field'|translate}}
-        </ion-text>
+    <ion-card  padding>
+      <form [formGroup]="onLoginForm" class="list-form">
+        <ion-item no-padding class="animated fadeInUp">
+          <ion-label position="floating">
+            <ion-icon name="person"></ion-icon>
+            {{'login.username'|translate}}
+          </ion-label>
+          <ion-input class="clone-input" type="text" formControlName="username"></ion-input>
+        </ion-item>
+        <p ion-text class="text08" *ngIf="onLoginForm.get('username').touched && onLoginForm.get('username').hasError('required')">
+          <ion-text color="warning">
+            {{'login.required_field'|translate}}
+          </ion-text>
         </p>
-      <ion-item lines='none' no-padding class='remember'>
-        <ion-label>{{'general.rememberme'|translate}}</ion-label>
-        <ion-checkbox mode="md" slot="start" formControlName="remember"></ion-checkbox>
-      </ion-item>
-    </form>
+
+        <ion-item no-padding class="animated fadeInUp">
+          <ion-label position="floating">
+            <ion-icon name="lock"></ion-icon>
+            {{'login.password'|translate}}
+          </ion-label>
+          <ion-input  type="password" formControlName="password"></ion-input>
+        </ion-item>
+        <p ion-text color="warning" class="text08" *ngIf="onLoginForm.get('password').touched && onLoginForm.get('password').hasError('required')">
+          <ion-text color="warning">
+            {{'login.required_field'|translate}}
+          </ion-text>
+        </p>
+        <ion-item lines='none' no-padding class='remember'>
+          <ion-label>{{'general.rememberme'|translate}}</ion-label>
+          <ion-checkbox mode="md" slot="start" formControlName="remember"></ion-checkbox>
+        </ion-item>
+      </form>
+    </ion-card>
+
 
     <p text-right tappable (click)="forgotPass()" class="paz">
       <ion-text color="light">
@@ -52,7 +53,7 @@
     </p>
 
     <div>
-      <ion-button icon-left size="medium" expand="full" shape="round" color="dark" (click)="login()" [disabled]="!onLoginForm.valid" tappable>
+      <ion-button icon-left size="medium" expand="full" shape="round" color="success" (click)="login()" [disabled]="!onLoginForm.valid" tappable>
         <ion-icon name="log-in"></ion-icon>
         {{'login.sigin'|translate}}
       </ion-button>
@@ -65,13 +66,13 @@
 
       <ion-grid class="btn-group">
         <ion-row>
-          <ion-col size="6">
-            <ion-button shape="round" expand="full" color="tertiary">
+          <ion-col size="6" text-center>
+            <ion-button color="secondary">
               <ion-icon slot="icon-only" name="logo-facebook"></ion-icon>
             </ion-button>
           </ion-col>
-          <ion-col size="6">
-            <ion-button shape="round" expand="full" color="tertiary">
+          <ion-col size="6" text-center>
+            <ion-button color="danger">
               <ion-icon slot="icon-only" name="logo-googleplus"></ion-icon>
             </ion-button>
           </ion-col>

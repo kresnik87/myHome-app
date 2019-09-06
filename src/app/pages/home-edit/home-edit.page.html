@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{"home.home"|translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content padding>
+    <ion-progress-bar type="indeterminate" color="primary" *ngIf="loading"></ion-progress-bar>
+    <ion-list>
+        <form [formGroup]="homeForm" (ngSubmit)="save()" *ngIf="homeForm">
+
+            <ion-item lines="full">
+                <ion-label position="fixed">
+                    {{'name'|translate}}
+                </ion-label>
+                <ion-input type="text" formControlName="name"></ion-input>
+            </ion-item>
+            <ion-item lines="full">
+                <ion-label position="fixed">
+                    {{'address'|translate}}
+                </ion-label>
+                <ion-input type="text" formControlName="address"></ion-input>
+            </ion-item>
+            <div class="errors color-error" padding>
+            </div>
+                <ksk-gmaps-autocomplete  type="address" [addressLabelText]="'Direccion'"
+                                         (onAutocompleteSelected)="onAutocompleteSelected($event)"
+                                         (onLocationSelected)="onLocationSelected($event)">
+                </ksk-gmaps-autocomplete>
+            <ion-button mode="md" class="btn btn-dark text--upper" shape="round" color="dark" fill="solid" expand="full"
+                        strong="true" (click)="save()">{{"save"|translate}}</ion-button>
+        </form>
+        <ksk-google-map
+                [latitude]="lat"
+                [longitude]="lng"
+                [zoom]="zoom"
+                [disableDefaultUI]="false"
+                [zoomControl]="false">
+            <ksk-google-marker [latitude]="lat" [longitude]="lng"></ksk-google-marker>
+        </ksk-google-map>
+    </ion-list>
+</ion-content>

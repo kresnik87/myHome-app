@@ -26,12 +26,19 @@ class BudgetService extends __BaseService {
   }
 
   /**
+   * @param params The `BudgetService.GetBudgetCollectionParams` containing the following parameters:
+   *
+   * - `home.id[]`:
+   *
+   * - `home.id`:
+   *
    * @return Budget collection response
    */
-  getBudgetCollectionResponse(): __Observable<__StrictHttpResponse<Array<BudgetBudgetRead>>> {
+  getBudgetCollectionResponse(params: BudgetService.GetBudgetCollectionParams): __Observable<__StrictHttpResponse<Array<BudgetBudgetRead>>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
+    if (params.homeId != null) __params = __params.set('home.id', params.homeId.toString());
     let req = new HttpRequest<any>(
       'GET',
       this.rootUrl + `/api/budgets`,
@@ -50,10 +57,16 @@ class BudgetService extends __BaseService {
     );
   }
   /**
+   * @param params The `BudgetService.GetBudgetCollectionParams` containing the following parameters:
+   *
+   * - `home.id[]`:
+   *
+   * - `home.id`:
+   *
    * @return Budget collection response
    */
-  getBudgetCollection(): __Observable<Array<BudgetBudgetRead>> {
-    return this.getBudgetCollectionResponse().pipe(
+  getBudgetCollection(params: BudgetService.GetBudgetCollectionParams): __Observable<Array<BudgetBudgetRead>> {
+    return this.getBudgetCollectionResponse(params).pipe(
       __map(_r => _r.body as Array<BudgetBudgetRead>)
     );
   }
@@ -179,6 +192,13 @@ class BudgetService extends __BaseService {
 }
 
 module BudgetService {
+
+  /**
+   * Parameters for getBudgetCollection
+   */
+  export interface GetBudgetCollectionParams {
+    homeId?: number;
+  }
 
   /**
    * Parameters for putBudgetItem
