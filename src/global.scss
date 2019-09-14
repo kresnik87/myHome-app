@@ -344,3 +344,21 @@ ion-menu {
 .fadeInDown {
   animation-name: fadeInDown;
 }
+
+
+.toast-success {
+    margin-top: 20px;
+    border-radius: 15px !important;
+    text-align: center;
+    width: 80%;
+    --background:var(--ion-color-success);
+}
+
+.toast-error {
+
+    margin-top: 20px;
+    border-radius: 15px !important;
+    text-align: center;
+    width: 80%;
+    --background:var(--ion-color-danger);
+}

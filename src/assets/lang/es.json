@@ -111,7 +111,14 @@
     "members": "Miembros",
     "text_see": "Ver",
     "text_create": "Crear",
-    "text_add": "Agregar"
+    "text_add": "Agregar",
+    "address": "Dirección",
+    "name": "Nombre del Hogar",
+    "telephone": "Teléfono",
+    "name_error": "El nombre es",
+    "phone_error": "El teléfono es",
+    "required": "requerido",
+    "success_msg": "Su hogar se ha guardado correctamente"
   },
   "loaders": {
     "addCart_loading": "Agregando al carrito...",

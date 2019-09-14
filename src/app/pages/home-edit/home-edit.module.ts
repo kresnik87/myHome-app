@@ -8,6 +8,7 @@ import {IonicModule} from '@ionic/angular';
 import {HomeEditPage} from './home-edit.page';
 import {TranslateModule} from '@ngx-translate/core';
 import {GmapsLibModule} from '@kresnik87/ng-gmaps-lib';
+import {MatFormFieldModule, MatInputModule} from '@angular/material';
 
 const routes: Routes = [
     {
@@ -23,6 +24,8 @@ const routes: Routes = [
         IonicModule,
         GmapsLibModule,
         ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
         TranslateModule.forChild(),
         RouterModule.forChild(routes)
     ],

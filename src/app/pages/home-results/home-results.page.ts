@@ -86,7 +86,7 @@ export class HomeResultsPage implements OnInit {
                 }, error1 => {
                     reject(error1);
                 });
-            }, 5000);
+            }, 1000);
         });
     }
 }
