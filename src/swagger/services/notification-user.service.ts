@@ -7,7 +7,8 @@ import { StrictHttpResponse as __StrictHttpResponse } from '../strict-http-respo
 import { Observable as __Observable } from 'rxjs';
 import { map as __map, filter as __filter } from 'rxjs/operators';
 
-import { NotificationUserNotification } from '../models/notification-user-notification';
+import { NotificationUserNotificationRead } from '../models/notification-user-notification-read';
+import { NotificationUserNotificationWrite } from '../models/notification-user-notification-write';
 @Injectable({
   providedIn: 'root',
 })
@@ -26,7 +27,7 @@ class NotificationUserService extends __BaseService {
   /**
    * @return NotificationUser collection response
    */
-  getNotificationUserCollectionResponse(): __Observable<__StrictHttpResponse<Array<NotificationUserNotification>>> {
+  getNotificationUserCollectionResponse(): __Observable<__StrictHttpResponse<Array<NotificationUserNotificationRead>>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -43,16 +44,16 @@ class NotificationUserService extends __BaseService {
     return this.http.request<any>(req).pipe(
       __filter(_r => _r instanceof HttpResponse),
       __map((_r) => {
-        return _r as __StrictHttpResponse<Array<NotificationUserNotification>>;
+        return _r as __StrictHttpResponse<Array<NotificationUserNotificationRead>>;
       })
     );
   }
   /**
    * @return NotificationUser collection response
    */
-  getNotificationUserCollection(): __Observable<Array<NotificationUserNotification>> {
+  getNotificationUserCollection(): __Observable<Array<NotificationUserNotificationRead>> {
     return this.getNotificationUserCollectionResponse().pipe(
-      __map(_r => _r.body as Array<NotificationUserNotification>)
+      __map(_r => _r.body as Array<NotificationUserNotificationRead>)
     );
   }
 
@@ -60,7 +61,7 @@ class NotificationUserService extends __BaseService {
    * @param id undefined
    * @return NotificationUser resource response
    */
-  getNotificationUserItemResponse(id: string): __Observable<__StrictHttpResponse<NotificationUserNotification>> {
+  getNotificationUserItemResponse(id: string): __Observable<__StrictHttpResponse<NotificationUserNotificationRead>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -78,7 +79,7 @@ class NotificationUserService extends __BaseService {
     return this.http.request<any>(req).pipe(
       __filter(_r => _r instanceof HttpResponse),
       __map((_r) => {
-        return _r as __StrictHttpResponse<NotificationUserNotification>;
+        return _r as __StrictHttpResponse<NotificationUserNotificationRead>;
       })
     );
   }
@@ -86,9 +87,9 @@ class NotificationUserService extends __BaseService {
    * @param id undefined
    * @return NotificationUser resource response
    */
-  getNotificationUserItem(id: string): __Observable<NotificationUserNotification> {
+  getNotificationUserItem(id: string): __Observable<NotificationUserNotificationRead> {
     return this.getNotificationUserItemResponse(id).pipe(
-      __map(_r => _r.body as NotificationUserNotification)
+      __map(_r => _r.body as NotificationUserNotificationRead)
     );
   }
 
@@ -101,7 +102,7 @@ class NotificationUserService extends __BaseService {
    *
    * @return NotificationUser resource updated
    */
-  putNotificationUserItemResponse(params: NotificationUserService.PutNotificationUserItemParams): __Observable<__StrictHttpResponse<NotificationUserNotification>> {
+  putNotificationUserItemResponse(params: NotificationUserService.PutNotificationUserItemParams): __Observable<__StrictHttpResponse<NotificationUserNotificationRead>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -120,7 +121,7 @@ class NotificationUserService extends __BaseService {
     return this.http.request<any>(req).pipe(
       __filter(_r => _r instanceof HttpResponse),
       __map((_r) => {
-        return _r as __StrictHttpResponse<NotificationUserNotification>;
+        return _r as __StrictHttpResponse<NotificationUserNotificationRead>;
       })
     );
   }
@@ -133,9 +134,9 @@ class NotificationUserService extends __BaseService {
    *
    * @return NotificationUser resource updated
    */
-  putNotificationUserItem(params: NotificationUserService.PutNotificationUserItemParams): __Observable<NotificationUserNotification> {
+  putNotificationUserItem(params: NotificationUserService.PutNotificationUserItemParams): __Observable<NotificationUserNotificationRead> {
     return this.putNotificationUserItemResponse(params).pipe(
-      __map(_r => _r.body as NotificationUserNotification)
+      __map(_r => _r.body as NotificationUserNotificationRead)
     );
   }
 }
@@ -151,7 +152,7 @@ module NotificationUserService {
     /**
      * The updated NotificationUser resource
      */
-    notificationUser?: NotificationUserNotification;
+    notificationUser?: NotificationUserNotificationWrite;
   }
 }
 

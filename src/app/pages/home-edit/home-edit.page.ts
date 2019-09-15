@@ -94,25 +94,48 @@ export class HomeEditPage implements OnInit {
 
         this.params.id=this.home.id.toString();
         this.params.home=home;
-        setTimeout(()=>{
-            this.homeService.putHomeItem(this.params).subscribe(
-                (res:HomeHomeRead) =>
-                {
-                    this.toastProvider.loadingComplete();
-                    this.toastProvider.toastMsgTrans("home.success_msg",TOAST_CLASS_SUCCESS).then((res)=>{
+        if(this.home.id!=null){
+            setTimeout(()=>{
+                this.homeService.putHomeItem(this.params).subscribe(
+                    (res:HomeHomeRead) =>
+                    {
+                        this.toastProvider.loadingComplete();
+                        this.toastProvider.toastMsgTrans("home.success_msg",TOAST_CLASS_SUCCESS).then((res)=>{
+                            this.navCtrl.back();
+                        });
+                        console.log(res);
+                    },
+                    (err) =>
+                    {
+                        this.toastProvider.loadingComplete();
+                        this.toastProvider.transformError(err);
                         this.navCtrl.back();
-                    });
-                    console.log(res);
-                },
-                (err) =>
-                {
-                    this.toastProvider.loadingComplete();
-                    this.toastProvider.transformError(err);
-                    this.navCtrl.back();
-                    console.error(err);
-                }
-            );
-        },2000);
+                        console.error(err);
+                    }
+                );
+            },2000);
+        }else{
+            setTimeout(()=>{
+                this.homeService.postHomeCollection(home).subscribe(
+                    (res:HomeHomeRead) =>
+                    {
+                        this.toastProvider.loadingComplete();
+                        this.toastProvider.toastMsgTrans("home.success_msg",TOAST_CLASS_SUCCESS).then((res)=>{
+                            this.navCtrl.back();
+                        });
+                        console.log(res);
+                    },
+                    (err) =>
+                    {
+                        this.toastProvider.loadingComplete();
+                        this.toastProvider.transformError(err);
+                        this.navCtrl.back();
+                        console.error(err);
+                    }
+                );
+            },2000);
+        }
+
 
         this.toastProvider.loadingComplete();
     }

@@ -56,7 +56,7 @@
                 <ion-item lines="none">
                     <ion-icon name="people" slot="start" class="text-c"></ion-icon>
                     <ion-label color="primary">{{"home.members"|translate}}</ion-label>
-                    <ion-button fill="outline" slot="end" color="light">{{(home.members.length>0 ? "home.text_see" : "home.text_add")|translate}}</ion-button>
+                    <ion-button fill="outline" slot="end" color="light" (click)="goMembersPage()">{{(home.members.length>0 ? "home.text_see" : "home.text_add")|translate}}</ion-button>
                 </ion-item>
                 <ion-card-content>
                     <ion-card-title>{{date|date:'LLLL yyyy'}}</ion-card-title>

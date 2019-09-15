@@ -8,7 +8,7 @@ import {UserCustomService} from '../../../services/user-custom.service';
 import {UserUserRead} from '../../../swagger/models/user-user-read';
 import {HomeService} from '../../../swagger/services';
 import {HomeHomeRead} from '../../../swagger/models/home-home-read';
-import {Router} from '@angular/router';
+import {NavigationExtras, Router} from '@angular/router';
 
 @Component({
     selector: 'app-home-results',
@@ -74,6 +74,21 @@ export class HomeResultsPage implements OnInit {
             });
         }
 
+    }
+
+    goMembersPage(){
+        let extras: NavigationExtras={
+            state:{
+                home:this.home
+            }
+        }
+        this.router.navigate(['/member'],extras).then((resp)=>{
+            if (resp) {
+                console.log('Navigation success');
+            } else {
+                console.log('Navigation failed!');
+            }
+        });
     }
 
     loadHome(id: any) {

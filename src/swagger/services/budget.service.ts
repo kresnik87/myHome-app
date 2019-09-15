@@ -38,6 +38,7 @@ class BudgetService extends __BaseService {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
+    (params.homeId || []).forEach(val => {if (val != null) __params = __params.append('home.id[]', val.toString())});
     if (params.homeId != null) __params = __params.set('home.id', params.homeId.toString());
     let req = new HttpRequest<any>(
       'GET',
@@ -197,6 +198,7 @@ module BudgetService {
    * Parameters for getBudgetCollection
    */
   export interface GetBudgetCollectionParams {
+    homeId?: Array<number>;
     homeId?: number;
   }
 

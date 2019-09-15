@@ -120,6 +120,9 @@
     "required": "requerido",
     "success_msg": "Su hogar se ha guardado correctamente"
   },
+  "member": {
+    "title": "Miembros del Hogar"
+  },
   "loaders": {
     "addCart_loading": "Agregando al carrito...",
     "send_message": "Enviando mensaje..."

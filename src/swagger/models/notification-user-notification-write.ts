@@ -1,6 +1,5 @@
 /* tslint:disable */
-export interface NotificationUserUserRead {
-  id?: number;
+export interface NotificationUserNotificationWrite {
   notification?: string;
   readed?: boolean;
   deleted?: boolean;
