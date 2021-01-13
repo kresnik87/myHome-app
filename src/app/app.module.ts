@@ -62,7 +62,7 @@ export const INIT_API_CONFIGURATION: Provider = {
     imports: [
         BrowserModule,
         GmapsLibModule.forRoot({
-            apiKey: 'AIzaSyAojQZueE1_JM4Bncz6lk8gr-DV68lWQ7Y',
+            apiKey: '',
             libraries: ['places']
         }),
         BrowserAnimationsModule,
